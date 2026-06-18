@@ -1,0 +1,221 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- PAGE HEADER WITH BACKGROUND IMAGE -->
+<section class="hero-section text-center text-white d-flex align-items-center justify-content-center">
+    <div class="overlay p-5">
+        <h1 class="fw-bold mb-3">About Our ATS System</h1>
+        <p class="fs-5">
+            An intelligent AI-powered solution to evaluate resumes based on job requirements and 
+            help recruiters shortlist the most relevant candidates.
+        </p>
+    </div>
+</section>
+
+<!-- SECTION 1 – WHAT OUR ATS DOES -->
+<section class="section-color py-5">
+    <div class="container">
+        <h2 class="text-center mb-4 fw-semibold">✨ What Our ATS Can Do</h2>
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="card shadow card-hover p-3 text-center">
+                    <div class="icon-container">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h4 class="mt-3">AI-Powered Resume Analysis</h4>
+                    <p>
+                        Automatically scans each resume and identifies keywords, skills, experience level, and 
+                        job-specific requirements using advanced.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow card-hover p-3 text-center">
+                    <div class="icon-container">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h4 class="mt-3">ATS Score Calculation</h4>
+                    <p>
+                        Computes ATS match score using keyword relevance, skill alignment, formatting, 
+                        and job description similarity.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow card-hover p-3 text-center">
+                    <div class="icon-container">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h4 class="mt-3">Visual Performance Insights</h4>
+                    <p>
+                        Provides charts comparing matched vs missing keywords, enabling HR to make 
+                        informed hiring decisions quickly.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 2 – HOW IT WORKS -->
+<section class="section-color-alt py-5">
+    <div class="container">
+        <h2 class="text-center mb-4 fw-semibold">⚙️ How the System Works</h2>
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="card shadow p-3 text-center card-hover">
+                    <div class="icon-container-small">
+                        <i class="fas fa-upload"></i>
+                    </div>
+                    <h5 class="mt-2">1. Upload Resume</h5>
+                    <p class="small-text">
+                        Upload one or multiple resumes in PDF or DOCX format. Strengths, eligibility, and more.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card shadow p-3 text-center card-hover">
+                    <div class="icon-container-small">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h5 class="mt-2">2. AI Keyword Extraction</h5>
+                    <p class="small-text">
+                        Extracts important skills, technical terms, tools, and experience indicators.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card shadow p-3 text-center card-hover">
+                    <div class="icon-container-small">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h5 class="mt-2">3. ATS Scoring Engine</h5>
+                    <p class="small-text">
+                        Compares extracted keywords with the job description and computes an accuracy score.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card shadow p-3 text-center card-hover">
+                    <div class="icon-container-small">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h5 class="mt-2">4. Final Report</h5>
+                    <p class="small-text">
+                        Generates detailed candidate ranking, keyword insights, and selection recommendations.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 3 – WHY USE OUR ATS -->
+<section class="section-color py-5">
+    <div class="container">
+        <h2 class="text-center mb-4 fw-semibold">🌟 Why Recruiters Love Our ATS</h2>
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="card shadow p-3 card-hover">
+                    <div class="icon-container">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h5 class="mt-3 text-center">Fast & Automated</h5>
+                    <p class="text-center">
+                        Eliminates manual resume screening and saves hours of recruitment effort.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow p-3 card-hover">
+                    <div class="icon-container">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h5 class="mt-3 text-center">Accurate Candidate Match</h5>
+                    <p class="text-center">
+                        Ensures only the most relevant applicants are shortlisted.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow p-3 card-hover">
+                    <div class="icon-container">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h5 class="mt-3 text-center">Smart Insights</h5>
+                    <p class="text-center">
+                        Provides deep understanding of resume missing skills, and improvement areas.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- STYLES -->
+<style>
+.hero-section {
+    background-image: url('https://th.bing.com/th/id/R.c8ab3f59dd523edb2470e06a72c93aa0?rik=m9gAGvNTA263PQ&riu=http%3a%2f%2fwww.textures4photoshop.com%2ftex%2fthumbs%2flow-poly-geometric-abstract-white-background-1267.jpg&ehk=UL4DQk%2bA6fAhmFourGxxH9mkXvvV6ibCLXqZ9mvyGd8%3d&risl=&pid=ImgRaw&r=0');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    position: relative;
+}
+.hero-section .overlay {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 50px;
+    border-radius: 12px;
+}
+
+.section-color {
+    background: #e0f7fa;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    padding: 40px 20px;
+}
+
+.section-color-alt {
+    background: #fff3e0;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    padding: 40px 20px;
+}
+
+.card-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.icon-container {
+    font-size: 40px;
+    color: #0d6efd;
+}
+
+.icon-container-small {
+    font-size: 30px;
+    color: #198754;
+}
+
+.small-text {
+    font-size: 0.9rem;
+}
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+
+{% endblock %}

@@ -1,0 +1,427 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+/* ---------------------------------- */
+/* GLOBAL UI IMPROVEMENTS */
+/* ---------------------------------- */
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #f6f8ff;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+    color: #1d1d1d;
+}
+
+section {
+    animation: fadeUp 0.8s ease;
+}
+
+/* Buttons */
+.btn-primary {
+    background: #4a6cf7;
+    color: #fff;
+    padding: 14px 34px;
+    font-size: 18px;
+    border-radius: 12px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.35s ease;
+    box-shadow: 0 5px 20px rgba(74, 108, 247, 0.25);
+}
+
+.btn-primary:hover {
+    background: #2b4cd6;
+    transform: translateY(-4px);
+}
+
+.btn-secondary {
+    background: #fff;
+    color: #4a6cf7;
+    border: 2px solid #4a6cf7;
+    padding: 12px 30px;
+    border-radius: 12px;
+    font-size: 16px;
+    transition: all 0.35s ease;
+}
+
+.btn-secondary:hover {
+    background: #4a6cf7;
+    color: #fff;
+    transform: translateY(-4px);
+}
+
+/* Animation */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------------------------------- */
+/* HERO SECTION */
+/* ---------------------------------- */
+
+.hero-section {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #dee6ff, #f3f6ff);
+    border-radius: 24px;
+    margin-bottom: 60px;
+}
+
+.hero-icon {
+    width: 135px;
+    margin-bottom: 25px;
+    animation: float 3s infinite ease-in-out;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0); }
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    font-weight: 700;
+    color: #1e1e1e;
+}
+
+.hero-content p {
+    font-size: 18px;
+    max-width: 680px;
+    margin: 18px auto 30px;
+    color: #5a5a5a;
+}
+
+/* ---------------------------------- */
+/* FEATURES */
+/* ---------------------------------- */
+
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+.feature-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 350px;
+    text-align: center;
+    background: #ffffff;
+    padding: 32px 28px;
+    border-radius: 18px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+    transition: all 0.35s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+}
+
+.feature-card img {
+    width: 90px;
+    margin-bottom: 20px;
+}
+
+/* ---------------------------------- */
+/* HOW IT WORKS */
+/* ---------------------------------- */
+
+.how-it-works {
+    background: #eef2ff;
+    padding: 60px 20px;
+    border-radius: 20px;
+    margin-top: 70px;
+}
+
+.steps {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.step-item {
+    text-align: center;
+    max-width: 260px;
+}
+
+.step-item img {
+    width: 85px;
+    margin-bottom: 12px;
+}
+
+/* ---------------------------------- */
+/* TESTIMONIALS */
+/* ---------------------------------- */
+
+.testimonials-row {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 28px;
+    flex-wrap: wrap;
+}
+
+.testimonial-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 32px 26px;
+    width: 30%;
+    min-width: 280px;
+    text-align: center;
+    box-shadow: 0 10px 22px rgba(0,0,0,0.08);
+    transition: all 0.35s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 18px 35px rgba(0,0,0,0.12);
+}
+
+.user-img {
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #4a6cf7;
+    margin-bottom: 18px;
+}
+
+/* ---------------------------------- */
+/* PRICING */
+/* ---------------------------------- */
+
+.pricing-cards {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+.price-card {
+    background: #ffffff;
+    padding: 35px 30px;
+    width: 290px;
+    border-radius: 22px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: all 0.35s ease;
+}
+
+.price-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+}
+
+.price-card.popular {
+    border: 3px solid #4a6cf7;
+}
+
+/* ---------------------------------- */
+/* FAQ */
+/* ---------------------------------- */
+
+.faq {
+    background: #eff3ff;
+    padding: 60px 25px;
+    border-radius: 20px;
+    margin-top: 70px;
+}
+
+.faq-box {
+    background: #ffffff;
+    padding: 22px 26px;
+    border-radius: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+.faq-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+/* ---------------------------------- */
+/* CTA SECTION */
+/* ---------------------------------- */
+
+.cta {
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.cta h2 {
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+</style>
+
+<!-- ---------------------------------------------- -->
+<!-- HTML CONTENT (YOUR PAGE SECTIONS) BELOW        -->
+<!-- ---------------------------------------------- -->
+
+<!-- HERO SECTION -->
+<section class="hero-section">
+    <div class="hero-content">
+        <img src="https://cdn-icons-png.flaticon.com/512/1048/1048953.png" class="hero-icon" />
+        <h1>AI-Powered ATS Resume Checker</h1>
+        <p>Analyze your resume, compare it with job descriptions, and instantly get an AI-generated ATS match score.</p>
+        <a class="btn-primary" href="{{ url_for('ats_page') }}">Start Checking Resume</a>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+    <div class="feature-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png" />
+        <h2>Resume Parsing</h2>
+        <p>AI extracts skills, experience, and education with high accuracy.</p>
+    </div>
+    <div class="feature-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2910/2910791.png" />
+        <h2>JD Comparison</h2>
+        <p>Get instant match scores from your JD and resume.</p>
+    </div>
+    <div class="feature-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/992/992651.png" />
+        <h2>Improvement Tips</h2>
+        <p>Boost your ATS score with AI-powered suggestions.</p>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works">
+    <h2>How It Works</h2>
+    <div class="steps">
+        <div class="step-item">
+            <img src="https://cdn-icons-png.flaticon.com/512/201/201623.png" />
+            <p><strong>Step 1:</strong> Upload Resume PDF</p>
+        </div>
+        <div class="step-item">
+            <img src="https://cdn-icons-png.flaticon.com/512/6812/6812969.png" />
+            <p><strong>Step 2:</strong> Add Job Description</p>
+        </div>
+        <div class="step-item">
+            <img src="https://cdn-icons-png.flaticon.com/512/992/992651.png" />
+            <p><strong>Step 3:</strong> Get AI Score</p>
+        </div>
+    </div>
+</section>
+
+<section style="padding:60px 20px; background:#f8faff;">
+    <h2 style="text-align:center; font-size:36px; font-weight:700; margin-bottom:40px;">
+        What Users Say
+    </h2>
+
+    <div class="testimonials-row">
+
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card">
+            <img src="https://i.pravatar.cc/150?img=47" class="user-img" />
+            <p class="testimonial-text">
+                “This ATS tool helped me understand how recruiters see my resume. Clean UI and accurate scoring!”
+            </p>
+            <h4 class="user-name">Priya Sharma</h4>
+            <div class="stars">★★★★★</div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card">
+            <img src="https://i.pravatar.cc/150?img=15" class="user-img" />
+            <p class="testimonial-text">
+                “Loved the keyword insights! I improved my resume and instantly got more interview calls.Clean and accurate.”
+            </p>
+            <h4 class="user-name">Arjun Verma</h4>
+            <div class="stars">★★★★★</div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card">
+            <img src="https://i.pravatar.cc/150?img=32" class="user-img" />
+            <p class="testimonial-text">
+                “Clean, fast, and accurate. Perfect ATS score checker for job seekers! Improved version then others and accurate.”
+            </p>
+            <h4 class="user-name">Sneha Patel</h4>
+            <div class="stars">★★★★★</div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- PRICING -->
+<section class="pricing">
+    <h2>Simple Pricing</h2>
+    <div class="pricing-cards">
+
+        <div class="price-card">
+            <h3>Free</h3>
+            <p class="price">₹0</p>
+            <ul>
+                <li>Basic Scan</li>
+                <li>ATS Score</li>
+                <li>Limited Tips</li>
+            </ul>
+            <a href="#" class="btn-secondary">Try Free</a>
+        </div>
+
+        <div class="price-card popular">
+            <div class="tag">Most Popular</div>
+            <h3>Pro</h3>
+            <p class="price">₹199</p>
+            <ul>
+                <li>Advanced Scan</li>
+                <li>JD Comparison</li>
+                <li>Full Report</li>
+            </ul>
+            <a href="#" class="btn-primary">Upgrade</a>
+        </div>
+
+        <div class="price-card">
+            <h3>Premium</h3>
+            <p class="price">₹399</p>
+            <ul>
+                <li>Everything in Pro</li>
+                <li>Resume Rewrite</li>
+                <li>Cover Letter</li>
+            </ul>
+            <a href="#" class="btn-secondary">Choose</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+    <h2>FAQ</h2>
+
+    <div class="faq-box">
+        <h3>What is ATS?</h3>
+        <p>ATS is Applicant Tracking System used by recruiters.</p>
+    </div>
+
+    <div class="faq-box">
+        <h3>Is my data saved?</h3>
+        <p>No. Your files are processed temporarily.</p>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+    <h2>Optimize Your Resume Today!</h2>
+    <a class="btn-primary" href="{{ url_for('ats_page') }}">Get Started</a>
+</section>
+
+
+
+{% endblock %}

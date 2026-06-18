@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-4">
+
+    <h1 class="text-center mb-4">ATS Results</h1>
+
+    {% set sorted_results = results | sort(attribute='score', reverse=True) %}
+
+    <!-- BAR CHART AREA -->
+    <div class="mb-5">
+        <h2 class="text-center">Candidate ATS Score Comparison</h2>
+        <div id="barChart" style="height: 480px;"></div>
+    </div>
+
+    <!-- Candidate Result Cards -->
+    {% for r in sorted_results %}
+    <div class="card result-card mb-4 shadow-sm p-3">
+
+        <div class="d-flex justify-content-between align-items-center">
+            <h3 class="candidate-name mb-0">{{ r.name }}</h3>
+
+            <!-- Ranking Badges -->
+            {% if loop.index == 1 %}
+                <span class="badge gold">🥇 1st</span>
+            {% elif loop.index == 2 %}
+                <span class="badge silver">🥈 2nd</span>
+            {% elif loop.index == 3 %}
+                <span class="badge bronze">🥉 3rd</span>
+            {% endif %}
+        </div>
+
+        <p class="mt-2"><strong>ATS Score:</strong> <span class="score">{{ r.score }}%</span></p>
+
+        <div class="row mt-3">
+            <!-- Matched Keywords -->
+            <div class="col-md-6">
+                <h5>✅ Matched</h5>
+                <div class="keyword-list">
+                    {% for k in r.matched %}
+                    <span class="keyword matched">{{ k }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Missing Keywords -->
+            <div class="col-md-6">
+                <h5>❌ Missing</h5>
+                <div class="keyword-list">
+                    {% for k in r.missing %}
+                    <span class="keyword missing">{{ k }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+    {% endfor %}
+
+    <div class="text-center mt-4">
+        <a class="btn btn-success" href="{{ url_for('ats_page') }}">Check Again</a>
+    </div>
+
+</div>
+
+<!-- Google Charts -->
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script>
+const resultsData = JSON.parse(`{{ sorted_results | tojson | safe }}`);
+
+google.charts.load('current', { packages: ['corechart'] });
+google.charts.setOnLoadCallback(drawBarChart);
+
+function drawBarChart() {
+    const dataArray = [["Candidate", "ATS Score", { role: "style" }]];
+
+    resultsData.forEach((r, i) => {
+        let color = "#0d6efd"; // default blue
+        if (i === 0) color = "gold";
+        else if (i === 1) color = "silver";
+        else if (i === 2) color = "#cd7f32";
+        dataArray.push([r.name, r.score, `color: ${color}`]);
+    });
+
+    const data = google.visualization.arrayToDataTable(dataArray);
+
+    const options = {
+        title: "ATS Score Comparison (Top Ranked)",
+        height: 480,
+        legend: { position: "none" },
+        vAxis: { minValue: 0, maxValue: 100 },
+        animation: { startup: true, duration: 900, easing: "out" }
+    };
+
+    const chart = new google.visualization.ColumnChart(document.getElementById("barChart"));
+    chart.draw(data, options);
+}
+
+window.addEventListener("resize", drawBarChart);
+</script>
+
+<!-- STYLES -->
+<style>
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 12px;
+}
+
+.result-card {
+    border-left: 6px solid #198754;
+    border-radius: 10px;
+}
+
+.candidate-name {
+    font-weight: bold;
+    color: #198754;
+}
+
+.score {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0d6efd;
+}
+
+.keyword-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 5px;
+}
+
+.keyword {
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.keyword.matched {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.keyword.missing {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.badge {
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.gold { background: gold; color: black; }
+.silver { background: silver; color: black; }
+.bronze { background: #cd7f32; color: white; }
+
+.btn {
+    padding: 10px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #fff;
+    background: #28a745;
+}
+</style>
+
+{% endblock %}
